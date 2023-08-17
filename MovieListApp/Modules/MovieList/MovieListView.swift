@@ -47,7 +47,7 @@ class MovieListViewController: UIViewController {
     private func setupUI() {
         // MARK: - ViewConfig
         view.backgroundColor = .white
-        title = "The Movie DB(Upcoming)"
+        title = "List Of Movies"
         
         // MARK: - MovieList Contrainst
         view.addSubview(movieListTableView)
@@ -82,7 +82,7 @@ class MovieListViewController: UIViewController {
     private func setupSearchBar() {
         searchController.searchResultsUpdater = self
         searchController.searchBar.placeholder = "Buscador"
-        navigationItem.searchController = searchController
+        //navigationItem.searchController = searchController
     }
     
     private func callWebService(page : String) {
@@ -124,8 +124,8 @@ extension MovieListViewController: UITableViewDataSource {
             let data = ofElements[indexPath.row]
             cell.overviewLabel.text = data.overview
             cell.titleMovieLabel.text = data.title
-            cell.releaseDateLabel.text = data.release_date
-            cell.voteAverageLabel.text =  String(format: "%.1f", data.vote_average)
+            cell.releaseDateLabel.text =  data.release_date
+            cell.voteAverageLabel.text =   String(format: "%.1f", data.vote_average)
             cell.posterImageView.image = UIImage(data: data.imagePoster!)
             return cell
         default:

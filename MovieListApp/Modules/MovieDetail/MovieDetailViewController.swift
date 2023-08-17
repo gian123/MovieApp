@@ -41,7 +41,7 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
     func setData(data: Result?) {
         guard let posterPath = data?.poster_path, let movieTitle = data?.title, let date = data?.release_date, let average = data?.vote_average, let overview = data?.overview else { return }
         movieTitleLabel.text = movieTitle
-        releaseDateLabel.text = date
+        releaseDateLabel.text =  "Release date: " + date
         voteAverageLabel.text = String(average)
         overviewLabel.text = overview
         posterImageView.af.setImage(withURL: getUrl(posterPath))
