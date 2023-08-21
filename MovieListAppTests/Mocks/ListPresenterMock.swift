@@ -10,6 +10,32 @@ import XCTest
 @testable import MovieListApp
 
 class ListPresenterMock : MovieListPresenterProtocol {
+    var view: MovieListViewProtocol?
+    
+    var interactor: MovieListInteractorInputProtocol?
+    
+    var router: MovieListRouterProtocol?
+    
+    func getMovieList(page: String) {
+     
+    }
+    
+    func getCoreDataMovieList(page: String) {
+    
+    }
+    
+    func presentDetailView(data: Result) {
+        
+    }
+    
+    func filterList(_ text: String) {
+        
+    }
+    
+    func getPageNumberMovieCoreData() {
+        
+    }
+    
     
 
     
