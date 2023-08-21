@@ -1,6 +1,5 @@
 //
 //  MovieLoginViewController.swift
-//  TheMovieDBChallenge
 //
 //  Created by Jesus Gianfranco Gutierrez Jarra on 16/08/23.
 //
@@ -31,8 +30,9 @@ class MovieLoginViewController: UIViewController {
     
     private func setupUI() {
         
-        let gif = UIImage.gifImageWithName("popcorn-snack")
-        logoImage.image = gif
+        //   title = "Movies App"
+     //   let gif = UIImage.gifImageWithName("popcorn-snack")
+      //  logoImage.image = gif
         
         loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         userTextField.keyboardType = .emailAddress

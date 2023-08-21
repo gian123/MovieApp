@@ -8,11 +8,11 @@
 import UIKit
 import Alamofire
 import AlamofireImage
+import Network
 
 protocol MovieDetailViewProtocol: AnyObject {
     // PRESENTER -> VIEW
     var presenter: MovieDetailPresenterProtocol? { get set }
-    
     func setData(data: Result?)
 }
 
@@ -25,28 +25,57 @@ class MovieDetailViewController: UIViewController {
     @IBOutlet weak var releaseDateLabel: UILabel!
     @IBOutlet weak var voteAverageLabel: UILabel!
     @IBOutlet weak var overviewLabel: UILabel!
+    @IBOutlet weak var detailView: UIView!
+    
+    
+    var networkCheck = NetworkCheck.sharedInstance()
+    
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        navigationItem.largeTitleDisplayMode = .never
+        
+       // navigationItem.largeTitleDisplayMode = .never
+      
+        detailView.dropShadow()
         presenter?.viewDidLoad()
+        networkCheck.addObserver(observer: self)
+        
+  
     }
 
-    private func saveMovie(_ image: UIImage?) {
-        presenter?.saveMovie(image)
-    }
+ 
 }
 
 extension MovieDetailViewController: MovieDetailViewProtocol {
     func setData(data: Result?) {
         guard let posterPath = data?.poster_path, let movieTitle = data?.title, let date = data?.release_date, let average = data?.vote_average, let overview = data?.overview else { return }
+      
+        
         movieTitleLabel.text = movieTitle
         releaseDateLabel.text =  "Release date: " + date
         voteAverageLabel.text = String(average)
         overviewLabel.text = overview
-        posterImageView.af.setImage(withURL: getUrl(posterPath))
-        var image = posterImageView.image
-        saveMovie(image)
-    }
+
+        if networkCheck.currentStatus == .satisfied {
+          
+            posterImageView.af.setImage(withURL: getUrl(posterPath))
+        
+        } else {
+          
+            if(data?.imagePoster != nil){
+                    
+                posterImageView.image = UIImage(data: data!.imagePoster!)
+            }
+           }
+        }
     
+}
+extension MovieDetailViewController: NetworkCheckObserver {
+    func statusDidChange(status: NWPath.Status) {
+        if status == .satisfied {
+            //Do something
+        }else if status == .unsatisfied {
+            //Show no network alert
+        }
+    }
 }

@@ -46,6 +46,7 @@
 		BF3832952A8D1E2C000E4062 /* CoredataRepository.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3832942A8D1E2C000E4062 /* CoredataRepository.swift */; };
 		BF3832972A8D1E9E000E4062 /* Constants.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3832962A8D1E9E000E4062 /* Constants.swift */; };
 		BF3832992A8D1EB8000E4062 /* NetworkCheck.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF3832982A8D1EB8000E4062 /* NetworkCheck.swift */; };
+		BF485FC12A9123DC0023F3E8 /* Extension+UIView.swift in Sources */ = {isa = PBXBuildFile; fileRef = BF485FC02A9123DC0023F3E8 /* Extension+UIView.swift */; };
 		E426E800803AA90403AC96B2 /* Pods_MovieListApp.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 7734B38ED1BE31ED1AC3EC1F /* Pods_MovieListApp.framework */; };
 /* End PBXBuildFile section */
 
@@ -117,6 +118,7 @@
 		BF3832942A8D1E2C000E4062 /* CoredataRepository.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoredataRepository.swift; sourceTree = "<group>"; };
 		BF3832962A8D1E9E000E4062 /* Constants.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Constants.swift; sourceTree = "<group>"; };
 		BF3832982A8D1EB8000E4062 /* NetworkCheck.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = NetworkCheck.swift; sourceTree = "<group>"; };
+		BF485FC02A9123DC0023F3E8 /* Extension+UIView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = "Extension+UIView.swift"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -284,6 +286,7 @@
 			children = (
 				BF3832882A8D1AAB000E4062 /* Extension+ViewController.swift */,
 				79623E142A8DD87700E1D0BA /* Extensions+GIF.swift */,
+				BF485FC02A9123DC0023F3E8 /* Extension+UIView.swift */,
 			);
 			path = Extensions;
 			sourceTree = "<group>";
@@ -579,6 +582,7 @@
 				79623E022A8D6C1D00E1D0BA /* MovieDetailViewController.swift in Sources */,
 				79623E0D2A8D734C00E1D0BA /* CustomButton.swift in Sources */,
 				BF3832892A8D1AAB000E4062 /* Extension+ViewController.swift in Sources */,
+				BF485FC12A9123DC0023F3E8 /* Extension+UIView.swift in Sources */,
 				BF38328E2A8D1DD3000E4062 /* MovieListEntity.swift in Sources */,
 				79623DFD2A8D6C1D00E1D0BA /* MovieDetailEntity.swift in Sources */,
 				BF3832992A8D1EB8000E4062 /* NetworkCheck.swift in Sources */,

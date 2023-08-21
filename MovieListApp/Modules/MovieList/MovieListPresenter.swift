@@ -1,6 +1,5 @@
 //
 //  MovieListPresenter.swift
-//  TheMovieDBChallenge
 //
 //  Created by Jesus Gianfranco Gutierrez Jarra on 16/08/23.
 //
@@ -17,15 +16,19 @@ protocol MovieListPresenterProtocol {
     func getCoreDataMovieList(page: String)
     func presentDetailView(data: Result)
     func filterList(_ text: String)
+    func getPageNumberMovieCoreData()
 }
 
 protocol MovieListInteractorOutputProtocol: AnyObject {
     // INTERACTOR -> PRESENTER
     func callBackDidGetMovies(data: MovieListResponse?)
-    func callBachDidGetCoreDataMovies(data: [MoviesCoreData]?)
+    func callBachDidGetCoreDataMovies(data: MovieListResponse?)
+    func callBackPageDidGetCoreDataMovies(page: String)
+   
 }
 
 class MovieListPresenter: MovieListPresenterProtocol {
+   
     
     // MARK: - Properties
     weak var view: MovieListViewProtocol?
@@ -33,6 +36,11 @@ class MovieListPresenter: MovieListPresenterProtocol {
     var router: MovieListRouterProtocol?
     
     var filteredList: MovieListResponse?
+    
+    func getPageNumberMovieCoreData() {
+        interactor?.getPageNumberMovieCoreData()
+    }
+    
 
     func getMovieList(page : String) {
         interactor?.fetchMovies(page : page)
@@ -63,12 +71,18 @@ class MovieListPresenter: MovieListPresenterProtocol {
 }
 
 extension MovieListPresenter: MovieListInteractorOutputProtocol {
+   
+    
+    func callBackPageDidGetCoreDataMovies(page: String) {
+        view?.pageCoreDataMoviesTable(withData: page)
+    }
+    
     func callBackDidGetMovies(data: MovieListResponse?) {
         view?.reloadMoviesTable(withData: data)
     }
     
-    func callBachDidGetCoreDataMovies(data: [MoviesCoreData]?) {
-        view?.reloadCoreDataMoviesTable(withData: data)
+    func callBachDidGetCoreDataMovies(data: MovieListResponse?) {
+        view?.reloadMoviesTable(withData: data)
     }
     
 }

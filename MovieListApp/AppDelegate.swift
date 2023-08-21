@@ -20,14 +20,38 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
     func application(_ application: UIApplication, didFinishLaunchingWithOptions
                      launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
- 
+       
+       
         
         let loginView = MovieLoginRouter.createModule()
         let navigationController = UINavigationController(rootViewController: loginView)
-        navigationController.navigationBar.prefersLargeTitles = true
+        navigationController.navigationBar.isTranslucent = false
+        navigationController.navigationBar.barTintColor = UIColor.white
+        navigationController.navigationBar.tintColor =  UIColor.white
+        navigationController.navigationBar.backgroundColor = UIColor.black
+        navigationController.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
         window = UIWindow(frame: UIScreen.main.bounds)
         window?.rootViewController = navigationController
         window?.makeKeyAndVisible()
+        
+        
+        
+        let navigationBarAppearance = UINavigationBarAppearance()
+        navigationBarAppearance.configureWithOpaqueBackground()
+        navigationBarAppearance.titleTextAttributes = [
+               NSAttributedString.Key.foregroundColor : UIColor.white
+        ]
+        navigationBarAppearance.backgroundColor = UIColor.black
+        UINavigationBar.appearance().standardAppearance = navigationBarAppearance
+        UINavigationBar.appearance().compactAppearance = navigationBarAppearance
+        UINavigationBar.appearance().scrollEdgeAppearance = navigationBarAppearance
+           
+        let tabBarApperance = UITabBarAppearance()
+        tabBarApperance.configureWithOpaqueBackground()
+        tabBarApperance.backgroundColor = UIColor.blue
+        UITabBar.appearance().scrollEdgeAppearance = tabBarApperance
+        UITabBar.appearance().standardAppearance = tabBarApperance
         
         return true
     }
@@ -35,6 +59,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     func changeScreenforLogin() {
         let loginViewController: MovieListViewController = MovieListRouter.createMovieListModule() as! MovieListViewController
         let navigation = UINavigationController(rootViewController: loginViewController)
+        navigation.navigationBar.isTranslucent = false
+        navigation.navigationBar.barTintColor = UIColor.white
+        navigation.navigationBar.tintColor =  UIColor.white
+        navigation.navigationBar.backgroundColor = UIColor.black
+        navigation.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         window?.rootViewController = navigation
     }
 

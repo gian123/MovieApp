@@ -1,6 +1,5 @@
 //
 //  MovieListRouter.swift
-//  TheMovieDBChallenge
 //
 //  Created by Jesus Gianfranco Gutierrez Jarra on 16/08/23.
 //
@@ -37,6 +36,17 @@ class MovieListRouter: MovieListRouterProtocol {
         guard let controller = viewProtocol as? UIViewController else {
             return
         }
+        
+        
+     
+        routerModule.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
+        
+        controller.navigationController?.navigationBar.isTranslucent = false
+     
+        controller.navigationController?.navigationBar.barTintColor = UIColor.black
+        controller.navigationController?.navigationBar.tintColor =  UIColor.white
+        controller.navigationController?.navigationBar.titleTextAttributes = [NSAttributedString.Key.foregroundColor: UIColor.white]
         controller.navigationController?.pushViewController(routerModule, animated: true)
+        
     }
 }
