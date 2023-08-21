@@ -7,12 +7,7 @@
 import Foundation
 import UIKit
 
-protocol MovieListRouterProtocol {
-    // PRESENTER -> ROUTER
-    static func createMovieListModule() -> UIViewController
-    
-    func presentDetailView(from viewProtocol: MovieListViewProtocol, data: Result)
-}
+
 
 class MovieListRouter: MovieListRouterProtocol {
     static func createMovieListModule() -> UIViewController {

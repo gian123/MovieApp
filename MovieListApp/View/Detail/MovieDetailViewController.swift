@@ -10,11 +10,6 @@ import Alamofire
 import AlamofireImage
 import Network
 
-protocol MovieDetailViewProtocol: AnyObject {
-    // PRESENTER -> VIEW
-    var presenter: MovieDetailPresenterProtocol? { get set }
-    func setData(data: Result?)
-}
 
 class MovieDetailViewController: UIViewController {
     

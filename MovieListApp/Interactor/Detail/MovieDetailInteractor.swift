@@ -7,11 +7,7 @@
 import Foundation
 import UIKit
 
-protocol MovieDetailInteractorInputProtocol {
-    // PRESENTER -> INTERACTOR
-    var presenter: MovieDetailInteractorOutputProtocol? { get set }
-    
-}
+
 
 class MovieDetailInteractor: MovieDetailInteractorInputProtocol {
     

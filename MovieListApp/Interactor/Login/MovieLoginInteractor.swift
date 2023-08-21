@@ -6,14 +6,11 @@
 
 import Foundation
 
-protocol MovieLoginInteractorInputProtocol {
-    // PRESENTER -> INTERACTOR
-    var presenter: MovieLoginInteractorOutputProtocol? { get set }
-    func callLogin(_ user: String, _ password: String)
-    func callLogin2(_ user: String, _ password: String)
-}
 
 class MovieLoginInteractor: MovieLoginInteractorInputProtocol {
+    
+    
+    
     
     // MARK: Properties
     weak var presenter: MovieLoginInteractorOutputProtocol?

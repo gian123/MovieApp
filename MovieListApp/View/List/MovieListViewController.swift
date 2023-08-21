@@ -7,12 +7,7 @@
 import UIKit
 import Network
 
-protocol MovieListViewProtocol: AnyObject {
-    // PRESENTER -> VIEW
-    var presenter: MovieListPresenterProtocol? { get set }
-    func reloadMoviesTable(withData data: MovieListResponse?)
-    func pageCoreDataMoviesTable(withData data: String?)
-}
+
 
 class MovieListViewController: UIViewController {
     

@@ -6,26 +6,7 @@
 
 import Foundation
 
-protocol MovieListPresenterProtocol {
-    // VIEW -> PRESENTER
-    var view: MovieListViewProtocol? { get set }
-    var interactor: MovieListInteractorInputProtocol? { get set }
-    var router: MovieListRouterProtocol? { get set }
-        
-    func getMovieList(page: String)
-    func getCoreDataMovieList(page: String)
-    func presentDetailView(data: Result)
-    func filterList(_ text: String)
-    func getPageNumberMovieCoreData()
-}
 
-protocol MovieListInteractorOutputProtocol: AnyObject {
-    // INTERACTOR -> PRESENTER
-    func callBackDidGetMovies(data: MovieListResponse?)
-    func callBachDidGetCoreDataMovies(data: MovieListResponse?)
-    func callBackPageDidGetCoreDataMovies(page: String)
-   
-}
 
 class MovieListPresenter: MovieListPresenterProtocol {
    

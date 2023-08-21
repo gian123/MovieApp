@@ -8,10 +8,6 @@
 import Foundation
 import UIKit
 
-protocol MovieDetailRouterProtocol {
-    // PRESENTER -> ROUTER
-    static func createMovieDetailModule(data: Result) -> UIViewController
-}
 
 class MovieDetailRouter: MovieDetailRouterProtocol {
     static func createMovieDetailModule(data: Result) -> UIViewController {

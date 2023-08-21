@@ -9,16 +9,7 @@ import UIKit
 import Alamofire
 import AlamofireImage
 
-protocol MovieListInteractorInputProtocol {
-    // PRESENTER -> INTERACTOR
-    var presenter: MovieListInteractorOutputProtocol? { get set }
-    var movies: MovieListResponse? { get set }
-    var moviesLocal: MovieListResponse? { get set }
-    var totalPages: String? { get set }
-    func fetchMovies( page : String)
-    func fetchCoreDataMovies(page : String)
-    func getPageNumberMovieCoreData()
-}
+
 
 class MovieListInteractor: MovieListInteractorInputProtocol {
   

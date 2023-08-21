@@ -7,20 +7,7 @@
 
 import Foundation
 
-protocol MovieLoginPresenterProtocol {
-    // VIEW -> PRESENTER
-    var view: MovieLoginViewProtocol? { get set }
-    var interactor: MovieLoginInteractorInputProtocol? { get set }
-    var router: MovieLoginRouterProtocol? { get set }
-    
-    func callLogin(_ user: String, _ password: String)
-}
 
-protocol MovieLoginInteractorOutputProtocol: AnyObject {
-    // INTERACTOR -> PRESENTER
-    func callBackDidGetUser()
-    func callBackDidGetError()
-}
 
 class MovieLoginPresenter: MovieLoginPresenterProtocol{
     

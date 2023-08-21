@@ -6,12 +6,6 @@
 
 import UIKit
 
-protocol MovieLoginViewProtocol: AnyObject {
-    // PRESENTER -> VIEW
-    var presenter: MovieLoginPresenterProtocol? { get set }
-    
-    func callBackWithNotSuccess()
-}
 
 class MovieLoginViewController: UIViewController {
     
