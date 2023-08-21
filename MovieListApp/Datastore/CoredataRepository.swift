@@ -24,14 +24,9 @@ class CoredataRepository {
             
             
             let movieFound = try context.fetch(request)
-            
-            print("movieFound to save : \(movieFound.count)")
-      
             if movieFound.count == 0 {
                 
-                
-                print("movieFound to save no encontro")
-              
+        
                 let newMovie = MoviesCoreData(context: context)
                 newMovie.idt  =  String(movie.id!)
                 newMovie.title = movie.title
@@ -49,11 +44,7 @@ class CoredataRepository {
                     
                     fatalError("Failed to save: \(error)")
                 }
-                
-                
-                
-                print("guardo  : \(newMovie.idt)")
-            }
+             }
      
         } catch {
             
@@ -96,8 +87,6 @@ class CoredataRepository {
                 
             }
                 
-                
-       
         } catch {
             
             fatalError("Failed to save: \(error)")
@@ -116,8 +105,7 @@ class CoredataRepository {
                       let max = recipes.first
                        completion(max?.page ?? "1")
                 
-                
-               } catch {
+              } catch {
 
                    
                  print(error.localizedDescription)

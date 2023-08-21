@@ -31,8 +31,8 @@ class MovieLoginInteractor: MovieLoginInteractorInputProtocol {
     func callLogin2(_ user: String, _ password: String) {
     
         
-     //   if user == "Admin" && password == "Password*123" {
-     if user == "123" && password == "123" {
+    if user == "Admin" && password == "Password*123" {
+        //  if user == "123" && password == "123" {
             self.presenter?.callBackDidGetUser()
         } else {
             self.presenter?.callBackDidGetError()
