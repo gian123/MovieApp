@@ -34,9 +34,17 @@ class MovieLoginViewController: UIViewController {
      //   let gif = UIImage.gifImageWithName("popcorn-snack")
       //  logoImage.image = gif
         
+        
+        passwordTextField.delegate = self
+        
+        
         loginButton.addTarget(self, action: #selector(loginButtonPressed), for: .touchUpInside)
         userTextField.keyboardType = .emailAddress
         passwordTextField.isSecureTextEntry = true
+        passwordTextField.returnKeyType = .done
+        
+        
+        
     }
     
     @objc func loginButtonPressed(_ button: UIButton) {
@@ -58,4 +66,9 @@ extension MovieLoginViewController: MovieLoginViewProtocol {
     }
     
     
+}
+extension MovieLoginViewController: UITextFieldDelegate {
+   func textFieldShouldReturn(_ textField: UITextField) -> Bool {
+      textField.resignFirstResponder()
+   }
 }

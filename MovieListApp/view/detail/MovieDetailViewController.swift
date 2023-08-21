@@ -56,18 +56,18 @@ extension MovieDetailViewController: MovieDetailViewProtocol {
         voteAverageLabel.text = String(average)
         overviewLabel.text = overview
 
-        if networkCheck.currentStatus == .satisfied {
+       // if networkCheck.currentStatus == .satisfied {
           
             posterImageView.af.setImage(withURL: getUrl(posterPath))
         
-        } else {
+        //  } else {
           
-            if(data?.imagePoster != nil){
+        //  if(data?.imagePoster != nil){
                     
-                posterImageView.image = UIImage(data: data!.imagePoster!)
-            }
-           }
-        }
+        //    posterImageView.image = UIImage(data: data!.imagePoster!)
+        //  }
+        // }
+       }
     
 }
 extension MovieDetailViewController: NetworkCheckObserver {

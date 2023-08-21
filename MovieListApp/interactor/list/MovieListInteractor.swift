@@ -1,6 +1,6 @@
 //
 //  MovieListInteractor.swift
-//
+
 //  Created by Jesus Gianfranco Gutierrez Jarra on 16/08/23.
 //
 
@@ -70,10 +70,15 @@ class MovieListInteractor: MovieListInteractorInputProtocol {
             
             var results = [Result]()
             
+            print("conteo: \(listOfCoreDataMovies.count)")
+            
+            
             listOfCoreDataMovies.forEach { item in
                 
+                print("conteo item: \(item)")
+                
                 var itemRemote = Result()
-                itemRemote.id =  Int(item.identificator!)
+                itemRemote.id =  Int(item.idt!)
                 itemRemote.original_title = item.title
                 itemRemote.overview = item.overview
                 itemRemote.poster_path = item.poster_path
@@ -112,7 +117,7 @@ class MovieListInteractor: MovieListInteractorInputProtocol {
                
              //  guard let image = responseData else { return }
                let image =  UIImage(data: responseData!, scale:1)
-               coreData.updateMovieCoreData(withMovie: item, withImage: image! )
+               //    coreData.updateMovieCoreData(withMovie: item, withImage: image! )
                
             case .failure(let error):
                 print("error--->",error)

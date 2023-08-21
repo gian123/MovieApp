@@ -104,20 +104,20 @@ extension MovieListViewController: UITableViewDataSource {
         cell.titleMovieLabel.text = data?.title
         cell.releaseDateLabel.text = data?.release_date
         cell.voteAverageLabel.text = String(format: "%.1f", data?.vote_average ?? 0.0)
-      
+        cell.posterImageView.af.setImage(withURL: getUrl(data?.poster_path ?? ""))
+  
         
-        if networkCheck.currentStatus == .satisfied {
+       // if networkCheck.currentStatus == .satisfied {
           
-            cell.posterImageView.af.setImage(withURL: getUrl(data?.poster_path ?? ""))
-      
-        } else {
+         
+        //   } else {
           
-            if(data?.imagePoster != nil){
+        //    if(data?.imagePoster != nil){
                     
-              cell.posterImageView.image = UIImage(data: data!.imagePoster!)
-            }
+        //  cell.posterImageView.image = UIImage(data: data!.imagePoster!)
+        //  }
            
-        }
+        //  }
         
         return cell
         
@@ -132,11 +132,10 @@ extension MovieListViewController: UITableViewDataSource {
               
               guard let pages = elements?.total_pages else { return }
               if(self.currentPage <= pages){
+                  
                   if networkCheck.currentStatus == .satisfied {
                      callWebService(page: String(currentPage))
-                  } else {
-                     callCoreDataService(page: String(currentPage))
-                  }
+                  } 
                   
               }
             
