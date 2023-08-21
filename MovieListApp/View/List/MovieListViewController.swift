@@ -176,10 +176,7 @@ extension MovieListViewController: MovieListViewProtocol {
             self.elements = data
         }
         
-       
-        print("data\(data)")
-        print("currentPage\(currentPage)")
-        print("total Pages\(  data?.total_pages)")
+   
        
         
         guard let count = data?.results?.count else { return }
